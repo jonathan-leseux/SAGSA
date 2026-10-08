@@ -33,8 +33,8 @@ import java.time.LocalDateTime;
 
 public class Usuario {
 
-    public interface CreateUser {}
-    public interface UpdateUser {}
+    public interface CreateUsuario {}
+    public interface UpdateUsuario {}
 
     public static final String TABLE_NAME = "usuario";
 
