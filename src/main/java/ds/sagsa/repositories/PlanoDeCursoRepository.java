@@ -11,5 +11,5 @@ import ds.sagsa.models.PlanoDeCurso;
 public interface PlanoDeCursoRepository extends JpaRepository<PlanoDeCurso, Long> {
 
     // Relação: Sapz compõe PlanoDeCurso
-    List<PlanoDeCurso> findBySapz_IdSapz(Long id_sapz);
+    List<PlanoDeCurso> findBySapz_Id_sapz(Long id_sapz);
 }
