@@ -8,7 +8,8 @@ import lombok.*;
 @Entity 
 @Table(name = PlanoDeCurso.TABLE_NAME)
 @Getter @Setter 
-@AllArgsConstructor @NoArgsConstructor 
+@AllArgsConstructor 
+@NoArgsConstructor 
 @EqualsAndHashCode 
 public class PlanoDeCurso {
     
@@ -17,7 +18,7 @@ public class PlanoDeCurso {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_plano", unique = true)
-    private Long id_plano;
+    private Long idPlano;
 
     @Column(name = "titulo", length = 50, nullable = false, unique = true)
     @NotBlank 
@@ -26,7 +27,7 @@ public class PlanoDeCurso {
     @Column(name = "descrição", length = 255, nullable = false)
     @NotNull
     @NotBlank
-    private String descrição;
+    private String descricao;
 
     @Column(name = "carga_horaria", nullable = false)
     @NotNull

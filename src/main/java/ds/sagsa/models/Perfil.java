@@ -20,12 +20,12 @@ public class Perfil {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_perfil")
     @EqualsAndHashCode.Include
-    private Long id_perfil;
+    private Long idPerfil;
 
     @Column(name = "nome_cargo", length = 50, nullable = false, unique = true)
     @NotBlank 
     @NotNull 
-    private String nome_cargo;
+    private String nomeCargo;
 
 
 }

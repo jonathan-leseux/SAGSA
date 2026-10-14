@@ -11,5 +11,5 @@ import ds.sagsa.models.SAPZ;
 public interface SAPZRepository extends JpaRepository<SAPZ, Long> {
 
     // Relação: Instrutor cria Sapz
-    List<SAPZ> findByInstrutor_Id_instrutor(Long id_instrutor);
+    List<SAPZ> findByInstrutor_Id_instrutor(Long instrutorId);
 }

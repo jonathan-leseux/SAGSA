@@ -29,17 +29,17 @@ public class UsuarioService {
 
     @Transactional
     public Usuario create(Usuario obj) {
-        obj.setId(null);
+        obj.setIdUsuario(null);
         obj = this.usuarioRepository.save(obj);
         return obj;
     }
 
     @Transactional
     public Usuario update(Usuario obj) {
-        Usuario newObj = findById(obj.getId());
+        Usuario newObj = findById(obj.getIdUsuario());
         newObj.setUsername(obj.getUsername());
         newObj.setEmail(obj.getEmail());
-        newObj.setSenha_hash(obj.getSenha_hash());
+        newObj.setSenhaHash(obj.getSenhaHash());
         newObj.setAtivo(obj.getAtivo());
         return this.usuarioRepository.save(newObj);
     }

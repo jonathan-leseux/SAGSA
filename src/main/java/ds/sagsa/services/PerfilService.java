@@ -29,15 +29,15 @@ public class PerfilService {
 
     @Transactional 
     public Perfil create(Perfil obj) {
-        obj.setId_perfil(null);
+        obj.setIdPerfil(null);
             obj = this.perfilRepository.save(obj);
             return obj;
     }
 
     @Transactional 
     public Perfil update(Perfil obj) {
-        Perfil newObj = findById(obj.getId_perfil());
-        newObj.setNome_cargo(obj.getNome_cargo());
+        Perfil newObj = findById(obj.getIdPerfil());
+        newObj.setNomeCargo(obj.getNomeCargo());
         return this.perfilRepository.save(newObj);
     }
 

@@ -25,7 +25,7 @@ public class SAPZ {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_sapz", unique = true)
-    private Long id_sapz;
+    private Long idSapz;
 
     @Column(name = "codigo", length = 50, nullable = false, unique = true)
     @NotBlank 
@@ -34,14 +34,14 @@ public class SAPZ {
     @Column(name = "descrição", length = 255, nullable = false)
     @NotNull
     @NotBlank
-    private String descrição;
+    private String descricao;
 
     @Column(name = "status", nullable = false)
     @NotNull
     private Boolean status = true;
 
     @Column(name = "data_criação", nullable = false)
-    private LocalDateTime data_criação = LocalDateTime.now();
+    private LocalDateTime dataCriacao = LocalDateTime.now();
 
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false, updatable = false)

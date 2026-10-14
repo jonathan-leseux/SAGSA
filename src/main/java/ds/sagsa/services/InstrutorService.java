@@ -29,14 +29,14 @@ public class InstrutorService {
 
     @Transactional 
     public Instrutor create(Instrutor obj){
-        obj.setId_instrutor(null);
+        obj.setIdInstrutor(null);
         obj = this.instrutorRepository.save(obj);
         return obj;
     }
 
     @Transactional 
     public Instrutor update(Instrutor obj){
-        Instrutor newObj = findById(obj.getId_instrutor());
+        Instrutor newObj = findById(obj.getIdInstrutor());
         newObj.setNome(obj.getNome());
         newObj.setCpf(obj.getCpf());
         newObj.setEmail(obj.getEmail());

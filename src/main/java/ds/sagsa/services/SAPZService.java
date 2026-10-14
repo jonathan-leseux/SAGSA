@@ -35,8 +35,46 @@ public class SAPZService {
         return this.sapzRepository.findAll();
     }
 
-    public List<SAPZ> findByUsuario_Id_usuario(Long usuarioId) {
+    public List<SAPZ> findByUsuarioId(Long usuarioId) {
         this.usuarioService.findById(usuarioId);
-        return this.sapzRepository.findByUsuario_Id_usuario(usuarioId);
+        return this.sapzRepository.findByUsuario_IdUsuario(usuarioId);
+    }
+
+    public List<SAPZ> findByInstrutorId(Long instrutorId){
+        this.usuarioService.findById(instrutorId);
+        return this.sapzRepository.findByInstrutor_IdInstrutor(instrutorId);
+    }
+
+    @Transactional 
+    public SAPZ create(SAPZ obj){
+        Usuario usuario = this.usuarioService.findById(obj.getUsuario().getIdUsuario());
+        obj.setUsuario(usuario);
+
+        if(obj.getInstrutores() != null && obj.getInstrutor().getIdInstrutor() != null) {
+            Instrutor instrutor = this.instrutorService.findById(obj.getInstrutor().getIdInstrutor());
+            obj.setInstrutor(instrutor);
+        }
+
+        obj.setIdSapz(null);
+        obj = this.sapzRepository.save(obj);
+        return obj;
+    }
+
+    @Transactional 
+    public SAPZ update(SAPZ obj) {
+        SAPZ newObj = findById(obj.getIdSapz());
+        newObj.setCodigo(obj.getCodigo());
+        newObj.setDescricao(obj.getDescricao());
+        newObj.setStatus(obj.getStatus());
+        return this.sapzRepository.save(newObj);
+    }
+
+    public void delete(Long id){
+        findById(id);
+        try{
+            this.sapzRepository.deleteById(id);
+        } catch (Exception e){
+            throw new RuntimeException("Não foi possivel excluir pois há entidades relacionadas!");
+        }
     }
 }

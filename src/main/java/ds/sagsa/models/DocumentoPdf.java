@@ -18,13 +18,13 @@ public class DocumentoPdf {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_documento", unique = true)
-    private Long id_documento;
+    private Long idDocumento;
 
     @Column(name = "caminho_arquivo", length = 255, nullable = false)
-    private String caminho_arquivo;
+    private String caminhoArquivo;
 
     @Column(name = "data_geração", nullable = false, updatable = false)
-    private LocalDateTime data_geração = LocalDateTime.now();
+    private LocalDateTime dataGeracao = LocalDateTime.now();
 
     @ManyToOne
     @JoinColumn(name = "id_usuario", nullable = false)

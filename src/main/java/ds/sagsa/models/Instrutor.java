@@ -19,7 +19,7 @@ public class Instrutor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_instrutor", unique = true)
-    private Long id_instrutor;
+    private Long idInstrutor;
 
     @Column(name = "nome", length = 100, nullable = false)
     @NotBlank 

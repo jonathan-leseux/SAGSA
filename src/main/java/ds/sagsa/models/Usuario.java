@@ -41,7 +41,7 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario", unique = true)
-    private Long id;
+    private Long idUsuario;
 
     @Column(name = "nome", length = 100, nullable = false, unique = true)
     @NotNull
@@ -64,10 +64,10 @@ public class Usuario {
     @NotNull
     @NotBlank
     @Size(min = 8, max = 60)
-    private String senha_hash;
+    private String senhaHash;
 
     @Column(name = "data_criação", nullable = false)
-    private LocalDateTime data_criação = LocalDateTime.now();
+    private LocalDateTime dataCriacao = LocalDateTime.now();
 
     @ManyToOne 
     @JoinColumn(name = "id_perfil", nullable = false)
